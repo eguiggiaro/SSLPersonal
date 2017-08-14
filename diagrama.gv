@@ -1,0 +1,30 @@
+strict digraph {
+splines = polyline;
+rankdir=LR;
+node [shape = none, label = "", width = 0, height = 0 ]; qd;
+node [label="\N", width = 0.3, height = 0.3];
+node [shape = doublecircle]; Number;
+node [shape = doublecircle]; Addition;
+node [shape = doublecircle]; Multiplication;
+node [shape = doublecircle]; Division;
+node [shape = doublecircle]; Substraction;
+node [shape = doublecircle]; PopResult;
+node [shape = doublecircle]; LexError;
+node [shape = circle];
+qd -> Inicio
+
+Inicio -> Inicio [label="espacio" fontsize = 9]
+Inicio -> InNumber [label="di­gito | acumular caracter" fontsize = 11]
+Inicio -> InFraction [label="punto | acumular caracter" fontsize = 11]
+Inicio -> PopResult [label="\\n | retornar lexema" fontsize = 11]
+Inicio -> Addition [label="+ | retornar lexema" fontsize = 11]
+Inicio -> Multiplication [label="* | retornar lexema" fontsize = 11]
+Inicio -> Division [label="/ | retornar lexema" fontsize = 11]
+Inicio -> Substraction [label="- | retornar lexema" fontsize = 11]
+Inicio -> LexError [label="otro | retornar lexema" fontsize = 11]
+InNumber -> InNumber [label="digito | acumular caracter" fontsize = 11]
+InNumber -> Number [label="espacio | retornar lexema" fontsize = 11]
+InNumber -> InFraction [label="punto | acumular caracter" fontsize = 11]
+InFraction -> InFraction [label="digito | acumular caracter" fontsize = 11]
+InFraction -> Number [label="espacio | retornar lexema" fontsize = 11]
+}

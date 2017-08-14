@@ -1,0 +1,41 @@
+digraph G {
+        fontname = "Bitstream Vera Sans"
+        fontsize = 8
+
+        node [
+                fontname = "Bitstream Vera Sans"
+                fontsize = 8
+                shape = "record"
+        ]
+
+        edge [
+                fontname = "Bitstream Vera Sans"
+                fontsize = 8
+        ]
+
+      Scannerh [
+                label = "{Scanner.h||void Push(double x) | double Pop(void) | int IsFull()|int IsEmpty()}"
+        ]
+      Scannerc [
+                label = "{Scanner.c||void Push(double x) | double Pop(void) | int IsFull()|int IsEmpty()}"
+        ]
+      Calculatorc [
+                label = "{Calculator.c|main}"
+        ]
+      StackModulec [
+                label = "{StackModule.c||enum TokenType | TokenValue | TokenType | Token | 
+bool GetNextToken(Token *t /*out*/)}"
+        ]
+      StackModuleh [
+                label = "{StackModule.h||enum TokenType | TokenValue | TokenType | Token | 
+bool GetNextToken(Token *t /*out*/)}"
+        ]
+   edge [
+                arrowhead = "empty"
+        ]
+
+        Scannerh -> Calculatorc
+        StackModuleh -> Calculatorc
+       StackModulec -> StackModuleh
+	Scannerc -> Scannerh
+}
